@@ -1,13 +1,17 @@
 git-grep(1)
 ===========
+// = git-grep(1)
 
 NAME
 ----
+// == NAME
 git-grep - Print lines matching a pattern
+// git-grep - 指定したパターンにマッチした行を表示します
 
 
 SYNOPSIS
 --------
+// == SYNOPSIS
 [verse]
 'git grep' [--cached]
 	   [-a | --text] [-I] [-i | --ignore-case] [-w | --word-regexp]
@@ -23,12 +27,29 @@ SYNOPSIS
 	   [-f <file>] [-e] <pattern>
 	   [--and|--or|--not|(|)|-e <pattern>...] [<tree>...]
 	   [--] [<pathspec>...]
+// [verse]
+// 'git grep' [--cached]
+// 	   [-a | --text] [-I] [-i | --ignore-case] [-w | --word-regexp]
+// 	   [-v | --invert-match] [-h|-H] [--full-name]
+// 	   [-E | --extended-regexp] [-G | --basic-regexp]
+// 	   [-F | --fixed-strings] [-n]
+// 	   [-l | --files-with-matches] [-L | --files-without-match]
+// 	   [-z | --null]
+// 	   [-c | --count] [--all-match] [-q | --quiet]
+// 	   [--max-depth <depth>]
+// 	   [--color | --no-color]
+// 	   [-A <post-context>] [-B <pre-context>] [-C <context>]
+// 	   [-f <file>] [-e] <pattern>
+// 	   [--and|--or|--not|(|)|-e <pattern>...] [<tree>...]
+// 	   [--] [<pathspec>...]
 
 DESCRIPTION
 -----------
+// == DESCRIPTION
 Look for specified patterns in the tracked files in the work tree, blobs
 registered in the index file, or blobs in given tree objects.
-
+// ワークツリーの中の追跡されているファイル群、インデックスファイルに登録されたデータ、
+// もしくは与えられたツリーオブジェクトのデータの中から、指定されたパターンを検索します。
 
 OPTIONS
 -------
@@ -191,14 +212,20 @@ git grep --all-match -e NODE -e Unexpected::
 
 Author
 ------
+// == Author
 Originally written by Linus Torvalds <torvalds@osdl.org>, later
 revamped by Junio C Hamano.
-
+// オリジナル版は Linus Torvalds <torvalds@osdl.org> によって書かれ、
+// 後に Junio C Hamano によって改造されました。
 
 Documentation
 --------------
+// == Documentation
 Documentation by Junio C Hamano and the git-list <git@vger.kernel.org>.
+// ドキュメントは、Junio C Hamano と git-list <git@vger.kernel.org> によって書かれました。
 
 GIT
 ---
+// == GIT
 Part of the linkgit:git[1] suite
+// このコマンドは linkgit:git[1] スイートの一部です。
