@@ -53,35 +53,58 @@ registered in the index file, or blobs in given tree objects.
 
 OPTIONS
 -------
+// == OPTIONS
 --cached::
 	Instead of searching in the working tree files, check
 	the blobs registered in the index file.
+// --cached::
+//	ワーキングツリー内のファイルを探す代わりに、
+//	インデックスファイルに登録されている塊を調べます。
 
 -a::
 --text::
 	Process binary files as if they were text.
+// -a::
+// --text::
+// 	バイナリファイルをテキストファイルのように扱います。
 
 -i::
 --ignore-case::
 	Ignore case differences between the patterns and the
 	files.
+// -i::
+// --ignore-case::
+// 	パターンとファイルの大文字小文字の違いを無視します。
 
 -I::
 	Don't match the pattern in binary files.
+// -I::
+// 	バイナリファイルはパターンにマッチさせません。
 
 --max-depth <depth>::
 	For each <pathspec> given on command line, descend at most <depth>
 	levels of directories. A negative value means no limit.
+// --max-depth <depth>::
+//	コマンドラインから与えられたそれぞれの<pathspec>における、下ることの出来る
+//	ディレクトリの最大<深さ>を表します。負の値を与えられた場合、制限なしを意味します。
 
 -w::
 --word-regexp::
 	Match the pattern only at word boundary (either begin at the
 	beginning of a line, or preceded by a non-word character; end at
 	the end of a line or followed by a non-word character).
+// -w::
+// --word-regexp::
+// 	Match the pattern only at word boundary (either begin at the
+// 	beginning of a line, or preceded by a non-word character; end at
+// 	the end of a line or followed by a non-word character).
 
 -v::
 --invert-match::
 	Select non-matching lines.
+// -v::
+// --invert-match::
+// 	マッチしなかった行が出力されます(訳注：結果が反転するということです)
 
 -h::
 -H::
@@ -90,6 +113,13 @@ OPTIONS
 	`-H` is there for completeness and does not do anything
 	except it overrides `-h` given earlier on the command
 	line.
+// -h::
+// -H::
+// 	By default, the command shows the filename for each
+// 	match.  `-h` option is used to suppress this output.
+// 	`-H` is there for completeness and does not do anything
+// 	except it overrides `-h` given earlier on the command
+// 	line.
 
 --full-name::
 	When run from a subdirectory, the command usually
@@ -99,6 +129,7 @@ OPTIONS
 
 -E::
 --extended-regexp::
+
 -G::
 --basic-regexp::
 	Use POSIX extended/basic regexp for patterns.  Default
