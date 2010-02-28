@@ -85,8 +85,8 @@ OPTIONS
 	For each <pathspec> given on command line, descend at most <depth>
 	levels of directories. A negative value means no limit.
 // --max-depth <depth>::
-//	コマンドラインから与えられたそれぞれの<pathspec>における、下ることの出来る
-//	ディレクトリの最大<深さ>を表します。負の値を与えられた場合、制限なしを意味します。
+//	コマンドラインから与えられたそれぞれの<pathspec>における、下るディレクトリの最大<深さ>を表します。
+//      負の値を与えられた場合、制限なしを意味します。
 
 -w::
 --word-regexp::
@@ -115,33 +115,46 @@ OPTIONS
 	line.
 // -h::
 // -H::
-// 	By default, the command shows the filename for each
-// 	match.  `-h` option is used to suppress this output.
-// 	`-H` is there for completeness and does not do anything
-// 	except it overrides `-h` given earlier on the command
-// 	line.
+//      通常、このコマンドはマッチした内容と一緒にファイル名を表示しますが、
+//      `-h`オプションはその出力を抑制します。
+//      `-H`はコマンドの前方で与えられた`-h`オプションを上書きすることが出来る以外は、
+//      完全性のために存在しています。
 
 --full-name::
 	When run from a subdirectory, the command usually
 	outputs paths relative to the current directory.  This
 	option forces paths to be output relative to the project
 	top directory.
+// --full-name::
+//      プロジェクトのサブディレクトリからコマンドを実行した場合、通常は現在位置からの
+//      相対パスで出力されますが、このオプションは強制的にプロジェクトの
+//      トップディレクトリからの相対パスで出力します。
 
 -E::
 --extended-regexp::
-
 -G::
 --basic-regexp::
 	Use POSIX extended/basic regexp for patterns.  Default
 	is to use basic regexp.
+// -E::
+// --extended-regexp::
+// -G::
+// --basic-regexp::
+//      パターンに使用する正規表現の種類を選択します(POSIX extended もしくは POSIX basic)
+//      デフォルトはPOSIX basicです。
 
 -F::
 --fixed-strings::
 	Use fixed strings for patterns (don't interpret pattern
 	as a regex).
+// -F::
+// --fixed-strings::
+//      パターンに固定文字列を使用します(パターンを正規表現として解釈しません)
 
 -n::
 	Prefix the line number to matching lines.
+// -n::
+//	マッチした行の先頭に行番号を付けます。
 
 -l::
 --files-with-matches::
