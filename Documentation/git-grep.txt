@@ -37,15 +37,15 @@ OPTIONS
 	Instead of searching in the working tree files, check
 	the blobs registered in the index file.
 // --cached::
-//	���[�L���O�c���[���̃t�@�C����T������ɁA
-//	�C���f�b�N�X�t�@�C���ɓo�^����Ă����𒲂ׂ܂��B
+//	ワーキングツリー内のファイルを探す代わりに、
+//	インデックスファイルに登録されている塊を調べます。
 
 -a::
 --text::
 	Process binary files as if they were text.
 // -a::
 // --text::
-// 	�o�C�i���t�@�C�����e�L�X�g�t�@�C���̂悤�Ɉ����܂��B
+// 	バイナリファイルをテキストファイルのように扱います。
 
 -i::
 --ignore-case::
@@ -53,19 +53,19 @@ OPTIONS
 	files.
 // -i::
 // --ignore-case::
-// 	�p�^�[���ƃt�@�C���̑啶���������̈Ⴂ�𖳎����܂��B
+// 	パターンとファイルの大文字小文字の違いを無視します。
 
 -I::
 	Don't match the pattern in binary files.
 // -I::
-// 	�o�C�i���t�@�C���̓p�^�[���Ƀ}�b�`�����܂���B
+// 	バイナリファイルはパターンにマッチさせません。
 
 --max-depth <depth>::
 	For each <pathspec> given on command line, descend at most <depth>
 	levels of directories. A negative value means no limit.
 // --max-depth <depth>::
-//	�R�}���h���C������^����ꂽ���ꂼ���<pathspec>�ɂ�����A���邱�Ƃ̏o����
-//	�f�B���N�g���̍ő�<�[��>��\���܂��B���̒l��^����ꂽ�ꍇ�A�����Ȃ����Ӗ����܂��B
+//	コマンドラインから与えられたそれぞれの<pathspec>における、下ることの出来る
+//	ディレクトリの最大<深さ>を表します。負の値を与えられた場合、制限なしを意味します。
 
 -w::
 --word-regexp::
@@ -83,7 +83,7 @@ OPTIONS
 	Select non-matching lines.
 // -v::
 // --invert-match::
-// 	�}�b�`���Ȃ������s���o�͂���܂�(�󒍁F���ʂ����]����Ƃ������Ƃł�)
+// 	マッチしなかった行が出力されます(訳注：結果が反転するということです)
 
 -h::
 -H::
