@@ -165,23 +165,40 @@ OPTIONS
 	names of files that contain (or do not contain) matches.
 	For better compatibility with 'git diff', --name-only is a
 	synonym for --files-with-matches.
+// -l::
+// --files-with-matches::
+// --name-only::
+// -L::
+// --files-without-match::
+//	マッチした行を表示する代わりに、マッチした(もしくはマッチしなかった)ファイル名を表示します。
+//      'git diff'とのより良い互換性のため、 --files-with-matches と同義の --name-only があります。
 
 -z::
 --null::
 	Output \0 instead of the character that normally follows a
 	file name.
+// -z::
+// --null::
+//      ファイル名に続いて出力される文字を、\0(NULL)に変更して出力します。
 
 -c::
 --count::
 	Instead of showing every matched line, show the number of
 	lines that match.
+// -c::
+// --count::
+// 	マッチした行の内容を表示する代わりに、マッチした行数を表示します。
 
 --color::
 	Show colored matches.
+// --color::
+//	マッチ部分に色を付けて表示します。
 
 --no-color::
 	Turn off match highlighting, even when the configuration file
 	gives the default to color output.
+// --no-color::
+//	設定ファイルのデフォルトが色付きの出力になっている時でも、マッチ部分の色づけを無効にします。
 
 -[ABC] <context>::
 	Show `context` trailing (`A` -- after), or leading (`B`
