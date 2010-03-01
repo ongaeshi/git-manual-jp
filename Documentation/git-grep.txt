@@ -208,6 +208,8 @@ OPTIONS
 
 -<num>::
 	A shortcut for specifying -C<num>.
+// -<num>::
+//	-C<num> のショートカットです。
 
 -p::
 --show-function::
@@ -219,6 +221,8 @@ OPTIONS
 
 -f <file>::
 	Read patterns from <file>, one per line.
+// -f <file>::
+//	<file>から、１行につき一つずつパターンを読み込みます.
 
 -e::
 	The next parameter is the pattern. This option has to be
