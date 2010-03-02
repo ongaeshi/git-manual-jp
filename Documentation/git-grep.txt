@@ -205,6 +205,11 @@ OPTIONS
 	-- before), or both (`C` -- context) lines, and place a
 	line containing `--` between contiguous groups of
 	matches.
+// -[ABC] <context>::
+//	Show `context` trailing (`A` -- after), or leading (`B`
+//	-- before), or both (`C` -- context) lines, and place a
+//	line containing `--` between contiguous groups of
+//	matches.
 
 -<num>::
 	A shortcut for specifying -C<num>.
@@ -218,6 +223,11 @@ OPTIONS
 	The name is determined in the same way as 'git diff' works out
 	patch hunk headers (see 'Defining a custom hunk-header' in
 	linkgit:gitattributes[5]).
+// -p::
+/ --show-function::
+//      もしマッチした行が関数名では無い場合、その前の関数名を含んだ行を表示します。
+//      名前の決定は、'git diff'と同じく hunk-header を使って決定されます。
+//      (参考 'Defining a custom hunk-header' in linkgit:gitattributes[5])
 
 -f <file>::
 	Read patterns from <file>, one per line.
@@ -229,6 +239,11 @@ OPTIONS
 	used for patterns starting with - and should be used in
 	scripts passing user input to grep.  Multiple patterns are
 	combined by 'or'.
+// -e::
+//      次のパラメータがパターンであることを明示的に表します。
+//      このオプションはパターンが'-'から始まる場合は必須ですし、
+//      スクリプトからユーザー入力をgrepに渡すような場合も推奨されます。
+//      複数のパターン(訳注: -eが複数個ある場合)は'or'で結合されます。
 
 --and::
 --or::
@@ -238,42 +253,71 @@ OPTIONS
 	expressions.  `--or` is the default operator.  `--and` has
 	higher precedence than `--or`.  `-e` has to be used for all
 	patterns.
+// --and::
+// --or::
+// --not::
+// ( ... )::
+//      複数のパターンがどのブール式で結合されるかを明示します。
+//      `--or`はデフォルトオペレーションです、`--and` は `--or` よりも
+//      優先が高いです。全てのパターンは`-e`を使う必要があります。
 
 --all-match::
 	When giving multiple pattern expressions combined with `--or`,
 	this flag is specified to limit the match to files that
 	have lines to match all of them.
+// --all-match::
+//      複数のパターンが `--or` で結合されて与えられた際、
+//      このフラグは、全てのパターンにマッチしたファイルのみに制限します。
 
 -q::
 --quiet::
 	Do not output matched lines; instead, exit with status 0 when
 	there is a match and with non-zero status when there isn't.
+// -q::
+// --quiet::
+//	マッチした行を表示しません。代わりに、終了コードをマッチがあった時は0、
+//      無かった時は非0で返します。
 
 `<tree>...`::
 	Search blobs in the trees for specified patterns.
+// `<tree>...`::
+//	指定されたツリーの中を検索します。
 
 \--::
 	Signals the end of options; the rest of the parameters
 	are <pathspec> limiters.
+// \--::
+//	オプションの終端を表します。
+//      それ以降のパラメータは、<pathspec>リミッターです。
 
 <pathspec>...::
 	If given, limit the search to paths matching at least one pattern.
 	Both leading paths match and glob(7) patterns are supported.
+// <pathspec>...::
+//	与えられた場合は、少なくとも一つのパターンにマッチしたパスのみに探索が制限されます。
+//      パスの前方部分を渡すか、glob(7)記法の両方がサポートされています。
 
 Example
 -------
-
+// == Example
 git grep 'time_t' -- '*.[ch]'::
 	Looks for `time_t` in all tracked .c and .h files in the working
 	directory and its subdirectories.
+// git grep 'time_t' -- '*.[ch]'::
+//      現在ディレクトリと、そのサブディレクトリの中にある、
+//      全ての.c、.hファイルの中から`time_t`を探します。
 
 git grep -e \'#define\' --and \( -e MAX_PATH -e PATH_MAX \)::
 	Looks for a line that has `#define` and either `MAX_PATH` or
 	`PATH_MAX`.
+// git grep -e \'#define\' --and \( -e MAX_PATH -e PATH_MAX \)::
+//      `#define` と、 `MAX_PATH` か `PATH_MAX` のどちらかを含んでいる行を探します。
 
 git grep --all-match -e NODE -e Unexpected::
 	Looks for a line that has `NODE` or `Unexpected` in
 	files that have lines that match both.
+//git grep --all-match -e NODE -e Unexpected::
+//     `NODE` と `Unexpected` の両方のマッチを含んだファイルの、マッチした行を探します。
 
 Author
 ------
