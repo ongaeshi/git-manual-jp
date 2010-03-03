@@ -1,3 +1,7 @@
+// -[ABC] <context>:: 
+// 部分の訳が怪しいです、直訳すると意味が良く分からなかったので、少し意訳しました。
+// もう少しニュアンス的に適切な訳がありましたらお願いします。
+
 git-grep(1)
 ===========
 // = git-grep(1)
@@ -95,9 +99,7 @@ OPTIONS
 	the end of a line or followed by a non-word character).
 // -w::
 // --word-regexp::
-// 	Match the pattern only at word boundary (either begin at the
-// 	beginning of a line, or preceded by a non-word character; end at
-// 	the end of a line or followed by a non-word character).
+//      単語境界(行頭か単語に含まれない文字で始まり、行末か単語に含まれない文字で終わる)のみにマッチします。
 
 -v::
 --invert-match::
@@ -206,10 +208,9 @@ OPTIONS
 	line containing `--` between contiguous groups of
 	matches.
 // -[ABC] <context>::
-//	Show `context` trailing (`A` -- after), or leading (`B`
-//	-- before), or both (`C` -- context) lines, and place a
-//	line containing `--` between contiguous groups of
-//	matches.
+//      マッチ箇所前後の文脈を<context>行分表示します。
+//      さらに、`--` を隣接したマッチグループの間に置きます。
+//      パラメータの意味は、後に(`A` -- after)、前に(`B` -- before)、もしくは両方(`C` -- context) です。
 
 -<num>::
 	A shortcut for specifying -C<num>.
@@ -324,14 +325,14 @@ Author
 // == Author
 Originally written by Linus Torvalds <torvalds@osdl.org>, later
 revamped by Junio C Hamano.
-// オリジナル版は Linus Torvalds <torvalds@osdl.org> によって書かれ、
+// オリジナル版は Linus Torvalds <torvalds@osdl.org> によって記述され、
 // 後に Junio C Hamano によって改造されました。
 
 Documentation
 --------------
 // == Documentation
 Documentation by Junio C Hamano and the git-list <git@vger.kernel.org>.
-// ドキュメントは、Junio C Hamano と git-list <git@vger.kernel.org> によって書かれました。
+// ドキュメントは、Junio C Hamano と git-list <git@vger.kernel.org> によって記述されました。
 
 GIT
 ---
