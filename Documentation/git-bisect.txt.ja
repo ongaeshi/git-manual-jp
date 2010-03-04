@@ -1,19 +1,25 @@
 git-bisect(1)
 =============
+// = git-bisect(1)
 
 NAME
 ----
+// == NAME
 git-bisect - Find by binary search the change that introduced a bug
-
+// git-bisect - バグの発生した変更箇所を、二分探索で見つける
 
 SYNOPSIS
 --------
+// == SYNOPSIS
 'git bisect' <subcommand> <options>
+// == 'git bisect' <subcommand> <options>
 
 DESCRIPTION
 -----------
+// == DESCRIPTION
 The command takes various subcommands, and different options depending
 on the subcommand:
+// コマンドは様々なサブコマンドと、それに関連した異なるオプションを取ります
 
  git bisect help
  git bisect start [<bad> [<good>...]] [--] [<paths>...]
@@ -29,18 +35,27 @@ on the subcommand:
 This command uses 'git rev-list --bisect' to help drive the
 binary search process to find which change introduced a bug, given an
 old "good" commit object name and a later "bad" commit object name.
+//! This command uses 'git rev-list --bisect' to help drive the
+//! binary search process to find which change introduced a bug, given an
+//! old "good" commit object name and a later "bad" commit object name.
 
 Getting help
 ~~~~~~~~~~~~
+// ヘルプの使い方
 
 Use "git bisect" to get a short usage description, and "git bisect
 help" or "git bisect -h" to get a long usage description.
+// "git bisect" は短い使い方の説明を得るのに使われ、
+// "git bisect help" または "git bisect -h" は長い使い方の説明を得るのに使われます。
 
 Basic bisect commands: start, bad, good
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// 基本的なbisectコマンド: start, bad, good
 
 Using the Linux kernel tree as an example, basic use of the bisect
 command is as follows:
+// 例として、Linuxカーネルツリーに使ってみます、
+// 基本的なbisectコマンドの使い方は下のようになります。
 
 ------------------------------------------------
 $ git bisect start
@@ -48,10 +63,18 @@ $ git bisect bad                 # Current version is bad
 $ git bisect good v2.6.13-rc2    # v2.6.13-rc2 was the last version
                                  # tested that was good
 ------------------------------------------------
+// ------------------------------------------------
+// $ git bisect start
+// $ git bisect bad                 # 現在のバージョンは駄目
+// $ git bisect good v2.6.13-rc2    # タグ v2.6.13-rc2 は、テストが成功した一番最後のバージョン
+// ------------------------------------------------
 
 When you have specified at least one bad and one good version, the
 command bisects the revision tree and outputs something similar to
 the following:
+// When you have specified at least one bad and one good version, the
+// command bisects the revision tree and outputs something similar to
+// the following:
 
 ------------------------------------------------
 Bisecting: 675 revisions left to test after this
