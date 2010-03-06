@@ -72,34 +72,51 @@ $ git bisect good v2.6.13-rc2    # v2.6.13-rc2 was the last version
 When you have specified at least one bad and one good version, the
 command bisects the revision tree and outputs something similar to
 the following:
-// When you have specified at least one bad and one good version, the
-// command bisects the revision tree and outputs something similar to
-// the following:
+// あなたがすくなくとも１つづつ失敗と成功のリビジョンを指定すると、
+// コマンドはリビジョンツリーを分割し、下記のようなメッセージを出力します。
 
 ------------------------------------------------
 Bisecting: 675 revisions left to test after this
 ------------------------------------------------
+// ------------------------------------------------
+// Bisecting: 675 revisions left to test after this # 分割中 : テストするリビジョンは残り'675'です
+// ------------------------------------------------
 
 The state in the middle of the set of revisions is then checked out.
 You would now compile that kernel and boot it. If the booted kernel
 works correctly, you would then issue the following command:
+// 中間のリビジョンがチェックアウトされます。
+// そうしたら、ただちにカーネルをコンパイル、実行してみましょう。
+// もしカーネルが正しく動作したら、以下のコマンドを入力します。
 
 ------------------------------------------------
 $ git bisect good			# this one is good
 ------------------------------------------------
+// ------------------------------------------------
+// $ git bisect good			# これはOK
+// ------------------------------------------------
 
 The output of this command would be something similar to the following:
+// コマンドの出力は以下のようなものになるでしょう
 
 ------------------------------------------------
 Bisecting: 337 revisions left to test after this
 ------------------------------------------------
+// ------------------------------------------------
+// Bisecting: 337 revisions left to test after this # 分割中 : テストするリビジョンは残り'337'です
+// ------------------------------------------------
 
 You keep repeating this process, compiling the tree, testing it, and
 depending on whether it is good or bad issuing the command "git bisect good"
 or "git bisect bad" to ask for the next bisection.
+// 次の二分先を決定するため、このプロセスを繰り返し続けます。
+// ツリーをコンパイル、テストし、成功か失敗に応じて、
+// "git bisect good" もしくは "git bisect bad" を発行します。
 
 Eventually there will be no more revisions left to bisect, and you
 will have been left with the first bad kernel revision in "refs/bisect/bad".
+// 最終的に、これ以上リビジョンを分割出来ない状態になります。
+// そして、"refs/bisect/bad"には最初に悪い状態になったカーネルのリビジョンが残されているでしょう。
 
 Bisect reset
 ~~~~~~~~~~~~
