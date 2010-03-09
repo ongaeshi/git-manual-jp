@@ -120,68 +120,110 @@ will have been left with the first bad kernel revision in "refs/bisect/bad".
 
 Bisect reset
 ~~~~~~~~~~~~
+// Bisect reset
 
 After a bisect session, to clean up the bisection state and return to
 the original HEAD, issue the following command:
+// bisectセッションの後に、二分された状態を元に戻し
+// 最初のHEADに戻るためには、以下のコマンドを実行して下さい:
 
 ------------------------------------------------
 $ git bisect reset
 ------------------------------------------------
+// ------------------------------------------------
+// $ git bisect reset
+// ------------------------------------------------
 
 By default, this will return your tree to the commit that was checked
 out before `git bisect start`.  (A new `git bisect start` will also do
 that, as it cleans up the old bisection state.)
+// 通常、これは`git bisect start`する前に取り出されていたコミット状態に
+// あなたのツリーを戻すでしょう。(また、新しい`git bisect start`した場合でも、
+// 古い二分状態はクリーンアップされるでしょう.)
 
 With an optional argument, you can return to a different commit
 instead:
+// オプションの引数を指定する場合は、代わりに別のコミットに戻すことが出来ます。
 
 ------------------------------------------------
 $ git bisect reset <commit>
 ------------------------------------------------
+// ------------------------------------------------
+// $ git bisect reset <commit>
+// ------------------------------------------------
 
 For example, `git bisect reset HEAD` will leave you on the current
 bisection commit and avoid switching commits at all, while `git bisect
 reset bisect/bad` will check out the first bad revision.
+//! For example, `git bisect reset HEAD` will leave you on the current
+//! bisection commit and avoid switching commits at all, while `git bisect
+//! reset bisect/bad` will check out the first bad revision.
 
 Bisect visualize
 ~~~~~~~~~~~~~~~~
+// Bisectの視覚化
 
 To see the currently remaining suspects in 'gitk', issue the following
 command during the bisection process:
+// 'gitk'を使い、現在の疑わしい候補の残りを見るには、
+// bisectを実行中に下のコマンドを実行して下さい。
 
 ------------
 $ git bisect visualize
 ------------
+// ------------
+// $ git bisect visualize
+// ------------
 
 `view` may also be used as a synonym for `visualize`.
+// `view` も`visualize`の同義語として使用することが出来ます。
 
 If the 'DISPLAY' environment variable is not set, 'git log' is used
 instead.  You can also give command line options such as `-p` and
 `--stat`.
+// もし'DISPLAY'環境変数が設定されていなければ、代わりに'git log'が使われます。
+// 同様に `-p` や `--stat` をオプションとして与えることも出来ます。
 
 ------------
 $ git bisect view --stat
 ------------
+// ------------
+// $ git bisect view --stat
+// ------------
 
 Bisect log and bisect replay
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ログとリプレイ
 
 After having marked revisions as good or bad, issue the following
 command to show what has been done so far:
+// リビジョンにgoodまたはbadマークを付けた後、
+// 下のコマンドを入力すると、これまで行われてきたが表示されます。
 
 ------------
 $ git bisect log
 ------------
+// ------------
+// $ git bisect log
+// ------------
 
 If you discover that you made a mistake in specifying the status of a
 revision, you can save the output of this command to a file, edit it to
 remove the incorrect entries, and then issue the following commands to
 return to a corrected state:
+// If you discover that you made a mistake in specifying the status of a
+// revision, you can save the output of this command to a file, edit it to
+// remove the incorrect entries, and then issue the following commands to
+// return to a corrected state:
 
 ------------
 $ git bisect reset
 $ git bisect replay that-file
 ------------
+// ------------
+// $ git bisect reset
+// $ git bisect replay that-file
+// ------------
 
 Avoiding testing a commit
 ~~~~~~~~~~~~~~~~~~~~~~~~~
