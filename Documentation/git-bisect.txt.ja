@@ -1,6 +1,10 @@
-// 残り
-// (1) For example, `git bisect reset HEAD` ...
-// (2) "revision that does not have this commit needs ...
+//// (1) For example, `git bisect reset HEAD` ...
+////   の訳がちょっと怪しい気がしています、後で直すかもしれません。
+////   上手く挙動も再現出来ていないので、いまいち自信がないです。
+////
+//// (2) "revision that does not have this commit needs ...
+////   も、同じく自信がないので時間をおいてまた考えてみます。
+////   こちらは、言いたいことはずれていないと思いつつ、上手く訳せない感じです。
 
 git-bisect(1)
 =============
@@ -159,9 +163,9 @@ $ git bisect reset <commit>
 For example, `git bisect reset HEAD` will leave you on the current
 bisection commit and avoid switching commits at all, while `git bisect
 reset bisect/bad` will check out the first bad revision.
-// 例として、`git bisect reset HEAD` will leave you on the current
-// bisection commit and avoid switching commits at all, while `git bisect
-// reset bisect/bad` will check out the first bad revision.
+// 例を挙げると、`git bisect reset HEAD` は現在のbisectコミットを残したまま、
+// 切り替えていったコミットを全て無効にします。
+// `git bisect reset bisect/bad` は最初にbadマークを付けたリビジョンをチェックアウトします。
 
 Bisect visualize
 ~~~~~~~~~~~~~~~~
@@ -384,8 +388,7 @@ patch applied to work around another problem this bisection is not
 interested in") applied to the revision being tested.
 // 時折、分割テストをするリビジョンに一時的な変更を加えたくなるでしょう。
 // (例えば s/#define 0/#define 1/をヘッダーファイルに適用したり、
-// "revision that does not have this commit needs this
-// patch applied to work around another problem this bisection is not interested in")
+//  "リビジョンにコミットしない、今回のbisectにはあまり関係のない他の問題のためのパッチが必要です。")
 
 To cope with such a situation, after the inner 'git bisect' finds the
 next revision to test, the script can apply the patch
