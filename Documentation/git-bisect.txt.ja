@@ -44,8 +44,8 @@ This command uses 'git rev-list --bisect' to help drive the
 binary search process to find which change introduced a bug, given an
 old "good" commit object name and a later "bad" commit object name.
 // このコマンドは'git rev-list --bisect'を利用して、
-// 与えられた過去の"正常な"コミットと、それより後の"不正な"コミットを渡して
-// 二分探索によりバグを誘発した変更を探すのを手伝ってくれます。
+// 与えられた過去の"正常な"コミットと、それより後に起きた"不正な"コミットを渡して
+// 二分探索によりバグの発生した変更を探すのを手伝ってくれます。
 
 Getting help
 ~~~~~~~~~~~~
@@ -256,8 +256,9 @@ $ git reset --hard HEAD~3		# try 3 revisions before what
 					# was suggested
 ------------
 // ------------
-// $ git bisect good/bad			# 前回はgoodかbadBisecting: 337 revisions left to test after this
-// $ git bisect visualize			# おっと、こいつはやりづらいな$ git reset --hard HEAD~3		# 3つ前のバージョンで試そう
+// $ git bisect good/bad		# 前回はgoodかbadBisecting: 337 revisions left to test after this
+// $ git bisect visualize		# おっと、こいつはやりづらいな 
+// $ git reset --hard HEAD~3		# 3つ前のバージョンで試そう
 // ------------
 
 Then compile and test the chosen revision, and afterwards mark
@@ -267,6 +268,7 @@ the revision as good or bad in the usual manner.
 
 Bisect skip
 ~~~~~~~~~~~~
+// Bisect skip
 
 Instead of choosing by yourself a nearby commit, you can ask git
 to do it for you by issuing the command:
@@ -293,6 +295,9 @@ using the "'<commit1>'..'<commit2>'" notation. For example:
 ------------
 $ git bisect skip v2.5..v2.6
 ------------
+// ------------
+// $ git bisect skip v2.5..v2.6
+// ------------
 
 This tells the bisect process that no commit after `v2.5`, up to and
 including `v2.6`, should be tested.
@@ -307,6 +312,9 @@ would issue the command:
 ------------
 $ git bisect skip v2.5 v2.5..v2.6
 ------------
+// ------------
+// $ git bisect skip v2.5 v2.5..v2.6
+// ------------
 
 This tells the bisect process that the commits between `v2.5` included
 and `v2.6` included should be skipped.
@@ -326,6 +334,9 @@ path parameters when issuing the `bisect start` command:
 ------------
 $ git bisect start -- arch/i386 include/asm-i386
 ------------
+// ------------
+// $ git bisect start -- arch/i386 include/asm-i386
+// ------------
 
 If you know beforehand more than one good commit, you can narrow the
 bisect space down by specifying all of the good commits immediately after
@@ -347,6 +358,7 @@ $ git bisect start v2.6.20-rc6 v2.6.20-rc4 v2.6.20-rc1 --
 
 Bisect run
 ~~~~~~~~~~
+// Bisect run
 
 If you have a script that can tell if the current source code is good
 or bad, you can bisect by issuing the command:
@@ -356,6 +368,9 @@ or bad, you can bisect by issuing the command:
 ------------
 $ git bisect run my_script arguments
 ------------
+// ------------
+// $ git bisect run my_script arguments
+// ------------
 
 Note that the script (`my_script` in the above example) should
 exit with code 0 if the current source code is good, and exit with a
@@ -407,6 +422,7 @@ determine the eventual outcome of the bisect session.
 
 EXAMPLES
 --------
+// == EXAMPLES
 
 * Automatically bisect a broken build between v1.2 and HEAD:
 // * v1.2 と HEAD の間でビルドに失敗している部分を自動で二分探索
@@ -415,6 +431,7 @@ EXAMPLES
 $ git bisect start HEAD v1.2 --      # HEAD is bad, v1.2 is good
 $ git bisect run make                # "make" builds the app
 ------------
+// +
 // ------------
 // $ git bisect start HEAD v1.2 --      # HEADは駄目, v1.2は大丈夫
 // $ git bisect run make                # "make"でアプリをビルド
@@ -427,6 +444,7 @@ $ git bisect run make                # "make" builds the app
 $ git bisect start HEAD origin --    # HEAD is bad, origin is good
 $ git bisect run make test           # "make test" builds and tests
 ------------
+// +
 // ------------
 // $ git bisect start HEAD origin --    # HEADは駄目, originは大丈夫
 // $ git bisect run make test           # "make test" でビルドとテスト
@@ -443,6 +461,7 @@ make test                          # "make test" runs the test suite
 $ git bisect start v1.3 v1.1 --    # v1.3 is bad, v1.1 is good
 $ git bisect run ~/test.sh
 ------------
+// +
 // ------------
 // $ cat ~/test.sh
 // #!/bin/sh
@@ -454,17 +473,20 @@ $ git bisect run ~/test.sh
 +
 Here we use a "test.sh" custom script. In this script, if "make"
 fails, we skip the current commit.
+// +
 // この例では、"test.sh"というカスタムスクリプトを使っています。
 // このスクリプトは、"make"に失敗したらこのコミットはスキップします
 +
 It is safer to use a custom script outside the repository to prevent
 interactions between the bisect, make and test processes and the
 script.
+// +
 // bisect, make, test プロセスと スクリプトとの相互作用を防ぐために、
 // カスタムスクリプトを使用する時はレポジトリの管理外にある方が安全です。
 +
 "make test" should "exit 0", if the test suite passes, and
 "exit 1" otherwise.
+// +
 // もしテストに合格すれば "make test" は "exit 0" を, そうでなければ
 // "exit 1" を返します。
 
@@ -479,6 +501,7 @@ make || exit 125                     # this skips broken builds
 $ git bisect start HEAD HEAD~10 --   # culprit is among the last 10
 $ git bisect run ~/test.sh
 ------------
+// +
 // ------------
 // $ cat ~/test.sh
 // #!/bin/sh
@@ -489,12 +512,14 @@ $ git bisect run ~/test.sh
 +
 Here "check_test_case.sh" should "exit 0" if the test case passes,
 and "exit 1" otherwise.
+// +
 // ここで "check_test_case.sh" はテストに合格すれば "exit 0" を、そうでなければ 
 // "exit 1" を返します。
 +
 It is safer if both "test.sh" and "check_test_case.sh" scripts are
 outside the repository to prevent interactions between the bisect,
 make and test processes and the scripts.
+// +
 // bisect, make, test プロセスと スクリプトとの相互作用を防ぐために、
 // "test.sh"と"check_test_case.sh"はレポジトリの管理外にある方がより安全です。
 
@@ -505,12 +530,14 @@ make and test processes and the scripts.
 $ git bisect start HEAD HEAD~10 --   # culprit is among the last 10
 $ git bisect run sh -c "make || exit 125; ~/check_test_case.sh"
 ------------
+// +
 // ------------
 // $ git bisect start HEAD HEAD~10 --   # 原因は最後の10個に
 // $ git bisect run sh -c "make || exit 125; ~/check_test_case.sh"
 // ------------
 +
 Does the same as the previous example, but on a single line.
+// +
 // 以前の例と同じですが、これなら一行で書けます。
 
 Author
