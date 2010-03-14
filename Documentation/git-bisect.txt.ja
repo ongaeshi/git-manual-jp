@@ -1,3 +1,7 @@
+// 残り
+// (1) For example, `git bisect reset HEAD` ...
+// (2) "revision that does not have this commit needs ...
+
 git-bisect(1)
 =============
 // = git-bisect(1)
@@ -37,7 +41,7 @@ binary search process to find which change introduced a bug, given an
 old "good" commit object name and a later "bad" commit object name.
 // このコマンドは'git rev-list --bisect'を利用して、
 // 与えられた過去の"正常な"コミットと、それより後の"不正な"コミットを渡して
-// 二分探索によりバグを誘発した変更を探すのを補助してくれます。
+// 二分探索によりバグを誘発した変更を探すのを手伝ってくれます。
 
 Getting help
 ~~~~~~~~~~~~
@@ -155,9 +159,9 @@ $ git bisect reset <commit>
 For example, `git bisect reset HEAD` will leave you on the current
 bisection commit and avoid switching commits at all, while `git bisect
 reset bisect/bad` will check out the first bad revision.
-//! For example, `git bisect reset HEAD` will leave you on the current
-//! bisection commit and avoid switching commits at all, while `git bisect
-//! reset bisect/bad` will check out the first bad revision.
+// 例として、`git bisect reset HEAD` will leave you on the current
+// bisection commit and avoid switching commits at all, while `git bisect
+// reset bisect/bad` will check out the first bad revision.
 
 Bisect visualize
 ~~~~~~~~~~~~~~~~
@@ -273,8 +277,9 @@ $ git bisect skip                 # Current version cannot be tested
 
 But git may eventually be unable to tell the first bad commit among
 a bad commit and one or more skipped commits.
-//! But git may eventually be unable to tell the first bad commit among
-//! a bad commit and one or more skipped commits.
+// しかし最初のbadコミットとの間に、badコミットや、
+// 一つないしそれ以上のskipコミットがあると、
+// gitは結局の所、それは出来ないと伝えてくるかもしれません。
 
 You can even skip a range of commits, instead of just one commit,
 using the "'<commit1>'..'<commit2>'" notation. For example:
