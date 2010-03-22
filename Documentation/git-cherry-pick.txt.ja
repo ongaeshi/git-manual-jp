@@ -1,11 +1,12 @@
 git-cherry-pick(1)
 ==================
-// == git-cherry-pick(1)
+// = git-cherry-pick(1)
 
 NAME
 ----
 // == NAME
 git-cherry-pick - Apply the change introduced by an existing commit
+// git-cherry-pick - 既存のコミットを持ち出し、その変更を適用します。
 
 SYNOPSIS
 --------
@@ -73,9 +74,9 @@ OPTIONS
 	described above, and `-r` was to disable it.  Now the
 	default is not to do `-x` so this option is a no-op.
 // -r::
-//	これは上で説明した`-x`がデフォルトオプションの時に使われていて、
-//	`-r`はそれを無効にする役割を担っていた。
-//	今はデフォルトでは'-x'が無効のため、これは何もしない。
+//	これは上で説明した`-x`がデフォルトオプションとして使われていた時、
+//	`-r`はそれを無効にする役割を担っていました。
+//	今はデフォルトでは'-x'が無効のため、このオプションは何もしません。
 
 -m parent-number::
 --mainline parent-number::
