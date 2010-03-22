@@ -6,6 +6,7 @@ NAME
 ----
 // == NAME
 git-cherry-pick - Apply the change introduced by an existing commit
+// git-cherry-pick - Apply the change introduced by an existing commit
 
 SYNOPSIS
 --------
