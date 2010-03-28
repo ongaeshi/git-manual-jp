@@ -6,7 +6,7 @@ NAME
 ----
 // == NAME
 git-cherry-pick - Apply the change introduced by an existing commit
-// git-cherry-pick - 既存のコミットを持ち出し、その変更を適用します。
+// git-cherry-pick - 既存のコミットを取り出して、その変更を適用します。
 
 SYNOPSIS
 --------
@@ -57,24 +57,21 @@ OPTIONS
 	development branch), adding this information can be
 	useful.
 // -x::
-//	When recording the commit, append to the original commit
-//	message a note that indicates which commit this change
-//	was cherry-picked from.  Append the note only for cherry
-//	picks without conflicts.  Do not use this option if
-//	you are cherry-picking from your private branch because
-//	the information is useless to the recipient.  If on the
-//	other hand you are cherry-picking between two publicly
-//	visible branches (e.g. backporting a fix to a
-//	maintenance branch for an older release from a
-//	development branch), adding this information can be
-//	useful.
+//	コミットを記録する際、通常のコミットメッセージに加え、この変更が
+//      どこのコミットからチェリーピックされたのかを、追記します。
+//	追記されるのは、チェリーピック時にコンフリクトが起きなかった時だけです。
+//      もしあなたの個人的なブランチからチェリーピックする場合、
+//      受け手にとって不要な情報なので、このオプションは使わないで下さい。
+//	一方、お互いに公開されている参照可能な二つのブランチ(例. 開発ブランチから
+//	メンテナンスブランチへ、旧リリース版のためにバックポーティングする)ならば、
+//	この情報を加えることは役に立つことがあります。
 
 -r::
 	It used to be that the command defaulted to do `-x`
 	described above, and `-r` was to disable it.  Now the
 	default is not to do `-x` so this option is a no-op.
 // -r::
-//	これは上で説明した`-x`がデフォルトオプションとして使われていた時、
+//	上で説明した`-x`がデフォルトオプションとして使われていた時、
 //	`-r`はそれを無効にする役割を担っていました。
 //	今はデフォルトでは'-x'が無効のため、このオプションは何もしません。
 
